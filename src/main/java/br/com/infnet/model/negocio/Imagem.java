@@ -44,7 +44,7 @@ public class Imagem extends Registro{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public Ave getAve() {
 		return ave;
 	}

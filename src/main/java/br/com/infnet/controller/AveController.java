@@ -3,6 +3,7 @@ package br.com.infnet.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +33,7 @@ public class AveController {
 		return aveService.obterLista();
 	}
 	@ApiOperation(value = "Remover uma ave existente")
-	@GetMapping(value = "/ave/{id}/excluir")
+	@DeleteMapping(value = "/ave/{id}/excluir")
 	public void excluir(@PathVariable Integer id) {
 		aveService.excluir(id);
 	}

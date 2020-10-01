@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +21,7 @@ public class Observador {
 	private Integer id;
 	private String nome;
 	private Integer idade;
-	@ManyToMany(cascade = CascadeType.DETACH)
+	@OneToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name = "TResgistroAve",	
 		joinColumns = {@JoinColumn(name="idRegistro")},
 		inverseJoinColumns = {@JoinColumn(name="idAve")})
@@ -31,11 +31,12 @@ public class Observador {
 	public Observador() {
 	}
 
-	public Observador(Integer id, String nome, Integer idade) {
-		this();
-		this.setId(id);
-		this.setNome(nome);
-		this.setIdade(idade);
+	public Observador(Integer id, String nome, Integer idade, List<Registro> registros) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.idade = idade;
+		this.registros = registros;
 	}
 
 	public Integer getId() {
